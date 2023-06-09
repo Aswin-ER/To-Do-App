@@ -1,15 +1,22 @@
 
 import "./App.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function App() {
 
   const [toDos, setTodos] = useState([]);
   const [toDo, setTodo] = useState('');
 
+  const inputRef = useRef();
+
   const date = new Date();
   const options = {weekday: 'long'};
   const weekday = date.toLocaleDateString(undefined, options);
+
+  const handleAddTodo = () => {
+    const inputValue = inputRef.current.value;
+    setTodos([...toDos, {text: inputValue, status: false, id: Date.now()}])
+  }
 
   return (
     <div className="app">
@@ -21,11 +28,12 @@ function App() {
         <h2>Whoop, it's {weekday} {date.toLocaleDateString()} 🌝☕</h2>
       </div>
       <div className="input">
-        <input value={toDo} onChange={(e)=>setTodo(e.target.value)}  type="text" placeholder="🖊️ Add item..." />
-        <i onClick={()=> setTodos([...toDos, {id: Date.now(), text: toDo, status: false}])} className="fas fa-plus"></i>
+        <input ref={inputRef} onChange={(e)=>setTodo(e.target.value)}  type="text" placeholder="🖊️ Add item..." />
+        <i onClick={handleAddTodo} className="fas fa-plus"></i>
       </div>
 
       <div className="todos">
+
       { 
 
       toDos.map((obj)=> {
@@ -39,12 +47,12 @@ function App() {
                 }
                 return obj2;
               }))
-            }} value={obj.status} type = "checkbox" name= "" id="" />
+            }} type = "checkbox" name= "" id="" />
             <p className="completed" style={{textDecoration: obj.status ? 'line-through' : 'none'}}>{obj.text}</p>
           </div>
 
           <div className="right">
-            <i onClick={()=> {setTodos(toDos.filter(obj2=> obj2.id !== obj.id));}}className="fas fa-times"></i>
+            <i onClick={()=> {setTodos(toDos.filter(obj2=> obj2.id !== obj.id))}}className="fas fa-times"></i>
           </div>
         </div>
        )
