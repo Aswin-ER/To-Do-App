@@ -22,13 +22,14 @@
   .app h1,
   h2 {
     color: white;
+    margin-left: 1rem;
   }
   
   .app .input {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-left: 37px; */
+    margin-left: 37px;
   }
   
   .app .input {
@@ -66,7 +67,7 @@
 
   .app .todos .todo {
     margin-top: 2em;
-    margin-right: 2rem;
+    margin-left: 1rem;
     width: 20em;
     height: 2em;
     background-color: white;
@@ -91,6 +92,7 @@
   }
 
 .remove {
+    margin-left: 1rem;
     background-color: #fbfbfb; 
     color: rgb(0, 0, 0); 
     padding: 0.625em 1.25em;
