@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# TODO LIST
+<h1> The live version of the project can be accessed at https://todo-app-nu-umber.vercel.app/ </h1>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
