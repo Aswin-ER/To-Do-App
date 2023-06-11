@@ -5,8 +5,6 @@ import { useRef, useState } from "react";
 function App() {
 
   const [toDos, setTodos] = useState([]);
-  const [toDo, setTodo] = useState('');
-
   const inputRef = useRef();
 
   const date = new Date();
@@ -28,7 +26,7 @@ function App() {
         <h2>Whoop, it's {weekday} {date.toLocaleDateString()} 🌝☕</h2>
       </div>
       <div className="input">
-        <input ref={inputRef} onChange={(e)=>setTodo(e.target.value)}  type="text" placeholder="🖊️ Add item..." />
+        <input ref={inputRef} type="text" placeholder="🖊️ Add item..." />
         <i onClick={handleAddTodo} className="fas fa-plus"></i>
       </div>
 
